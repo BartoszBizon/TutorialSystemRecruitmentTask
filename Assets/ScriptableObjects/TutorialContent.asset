@@ -1,0 +1,134 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 622f36bb96c2df54282636755b5012cd, type: 3}
+  m_Name: TutorialContent
+  m_EditorClassIdentifier: 
+  _sequences:
+  - Id: intro
+    IsSkippable: 1
+    StartConditions: []
+    Entries:
+    - Id: intro_hello
+      IsBlocking: 1
+      CompletionActionKey: 
+      Dialog:
+        Enabled: 1
+        Speaker: Robin
+        Text: Welcome to the town, traveller! You look like you could use some coin.
+        Side: 0
+      Indication:
+        Enabled: 0
+        TargetId: 
+        Highlight: 0
+        ShowPointer: 1
+        ScreenId: 
+    - Id: intro_bounty
+      IsBlocking: 1
+      CompletionActionKey: 
+      Dialog:
+        Enabled: 1
+        Speaker: Robin
+        Text: The bounty board always pays its debts. Let me show you.
+        Side: 0
+      Indication:
+        Enabled: 0
+        TargetId: 
+        Highlight: 0
+        ShowPointer: 1
+        ScreenId: 
+    - Id: intro_collect
+      IsBlocking: 1
+      CompletionActionKey: reward.collect
+      Dialog:
+        Enabled: 1
+        Speaker: Robin
+        Text: Collect your reward here.
+        Side: 0
+      Indication:
+        Enabled: 1
+        TargetId: reward_button
+        Highlight: 1
+        ShowPointer: 1
+        ScreenId: main
+  - Id: skills
+    IsSkippable: 0
+    StartConditions:
+    - Type: 0
+      SequenceId: intro
+      Amount: 0
+    - Type: 1
+      SequenceId: 
+      Amount: 100
+    Entries:
+    - Id: skills_intro
+      IsBlocking: 1
+      CompletionActionKey: 
+      Dialog:
+        Enabled: 1
+        Speaker: Robin
+        Text: Gold is worth nothing in your pocket. Let's make you stronger.
+        Side: 1
+      Indication:
+        Enabled: 0
+        TargetId: 
+        Highlight: 0
+        ShowPointer: 1
+        ScreenId: 
+    - Id: skills_open
+      IsBlocking: 1
+      CompletionActionKey: 
+      Dialog:
+        Enabled: 0
+        Speaker: 
+        Text: 
+        Side: 0
+      Indication:
+        Enabled: 1
+        TargetId: skills_button
+        Highlight: 0
+        ShowPointer: 1
+        ScreenId: main
+    - Id: skills_upgrade
+      IsBlocking: 1
+      CompletionActionKey: skill.upgrade.strength
+      Dialog:
+        Enabled: 0
+        Speaker: 
+        Text: 
+        Side: 0
+      Indication:
+        Enabled: 1
+        TargetId: upgrade_strength
+        Highlight: 0
+        ShowPointer: 1
+        ScreenId: skills
+  - Id: reward_again
+    IsSkippable: 1
+    StartConditions:
+    - Type: 0
+      SequenceId: skills
+      Amount: 0
+    Entries:
+    - Id: reward_again_collect
+      IsBlocking: 0
+      CompletionActionKey: reward.collect
+      Dialog:
+        Enabled: 0
+        Speaker: 
+        Text: 
+        Side: 0
+      Indication:
+        Enabled: 1
+        TargetId: reward_button
+        Highlight: 1
+        ShowPointer: 1
+        ScreenId: 
